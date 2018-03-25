@@ -1,6 +1,6 @@
 ---
 title: The Forensic Playground File Format
-subtitle: 1.0
+subtitle: 1.1
 author: William Woodruff
 date: \today
 documentclass: scrartcl
@@ -175,6 +175,8 @@ There are currently a fixed set of valid types:
 * `SECTION_COORD` (`0x6`) -- (Latitude, longitude) tuple of doubles.
 * `SECTION_REFERENCE` (`0x7`) -- The index of another section.
 * `SECTION_PNG` (`0x8`) -- Embedded PNG image.
+* `SECTION_GIF87` (`0x9`) -- Embedded GIF (1987) image.
+* `SECTION_GIF89` (`0xA`) -- Embedded GIF (1989) image.
 
 [^3]: <https://en.wikipedia.org/wiki/UTF-8>
 
@@ -226,6 +228,24 @@ a proper FPFF parser **must** re-add the signature to produce the actual PNG.
 
 [^4]: <https://en.wikipedia.org/wiki/Portable_Network_Graphics>
 [^5]: <http://www.libpng.org/pub/png/spec/1.2/PNG-Rationale.html#R.PNG-file-signature>
+
+##### `SECTION_GIF87`
+
+Sections of type `SECTION_GIF87` **must** contain `slen` bytes of 87a GIF-encoded data[^6].
+
+As a space-saving measure, a proper FPFF emitter **must** remove the 87a file signature. Thus,
+a proper FPFF parser **must** re-add the signature to produce the actual GIF.
+
+[^6]: https://www.w3.org/Graphics/GIF/spec-gif87.txt
+
+##### `SECTION_GIF89`
+
+Sections of type `SECTION_GIF87` **must** contain `slen` bytes of 89a GIF-encoded data[^7].
+
+As a space-saving measure, a proper FPFF emitter **must** remove the 89a file signature. Thus,
+a proper FPFF parser **must** re-add the signature to produce the actual GIF.
+
+[^7]: https://www.w3.org/Graphics/GIF/spec-gif89a.txt
 
 #### Section length
 
