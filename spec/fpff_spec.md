@@ -236,7 +236,7 @@ Sections of type `SECTION_GIF87` **must** contain `slen` bytes of 87a GIF-encode
 As a space-saving measure, a proper FPFF emitter **must** remove the 87a file signature. Thus,
 a proper FPFF parser **must** re-add the signature to produce the actual GIF.
 
-[^6]: https://www.w3.org/Graphics/GIF/spec-gif87.txt
+[^6]: <https://www.w3.org/Graphics/GIF/spec-gif87.txt>
 
 ##### `SECTION_GIF89`
 
@@ -245,7 +245,7 @@ Sections of type `SECTION_GIF87` **must** contain `slen` bytes of 89a GIF-encode
 As a space-saving measure, a proper FPFF emitter **must** remove the 89a file signature. Thus,
 a proper FPFF parser **must** re-add the signature to produce the actual GIF.
 
-[^7]: https://www.w3.org/Graphics/GIF/spec-gif89a.txt
+[^7]: <https://www.w3.org/Graphics/GIF/spec-gif89a.txt>
 
 #### Section length
 
